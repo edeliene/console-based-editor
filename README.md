@@ -1,45 +1,66 @@
-# Console Text Editor (Vim-like in Python)
+# Console-Based Text Editor (Multi-Line)
 
-A lightweight console-based text editor implemented in Python, inspired by Vim-style modal editing and command navigation.
+A simple console-based text editor written in Python that simulates basic Vim-style editing through command-based input.  
+This project demonstrates core concepts in data structures, string manipulation, and command parsing by building a lightweight text editor from scratch.
 
-This project demonstrates how a simple text editor can be built from scratch using core data structures and string manipulation—without external libraries or GUI frameworks.
+---
+
+## 📌 Overview
+
+This editor operates entirely in the terminal using text commands instead of a graphical interface or real-time key detection.
+
+It supports multi-line editing, cursor navigation, word-level operations, and basic text manipulation. The goal of this project is to explore how text editors manage state (content, cursor position, and lines) using simple data structures.
 
 ---
 
 ## ✨ Features
 
 ### Cursor Movement
-- `h / l` → move left / right
-- `j / k` → move up / down between lines
-- `^ / $` → jump to start / end of line
-- `w / b / e` → word-based navigation
+- `h` / `l` → move left / right
+- `j` / `k` → move up / down between lines
+- `^` / `$` → move to start / end of line
+- `w` / `b` / `e` → word-based navigation
+
+---
 
 ### Text Editing
-- `i / a` → insert before / after cursor
-- `I / A` → insert at beginning / end of line
-- `x / X` → delete character at / before cursor
+- `i <text>` → insert text before cursor
+- `a <text>` → append text after cursor
+- `I <text>` → insert at beginning of line
+- `A <text>` → append at end of line
 
-### Word Operations
-- `dw` → delete to next word
+---
+
+### Deletion Commands
+- `x` → delete character at cursor
+- `X` → delete character before cursor
+- `dw` → delete word starting at cursor
 - `de` → delete to end of word
 - `db` → delete previous word
-- `dc` → delete word or whitespace at cursor
+- `dc` → delete word/whitespace at cursor
+- `dd` → delete current line
 
-### Word Swapping
+---
+
+### Word Operations
 - `sw` → swap current word with next word
 - `sb` → swap current word with previous word
 
-### Multi-line Editing
-- `o / O` → insert new line below / above
-- `dd` → delete current line
-- `J / K` → move line up / down
-- `;` → toggle line cursor indicator
+---
 
-### Utility
+### Multi-Line Features
+- `o` → insert new line below
+- `O` → insert new line above
+- `J` / `K` → move current line down / up
+- `;` → toggle line indicator (current line marker)
+
+---
+
+### Utility Commands
 - `?` → show help menu
 - `.` → toggle cursor highlight
-- `q` → quit editor
 - `LineNumber` → jump to a specific line
+- `q` → quit editor
 
 ---
 
@@ -49,3 +70,65 @@ Make sure you have Python 3 installed.
 
 ```bash
 python editor.py
+
+---
+
+## 🧱 How It Works
+
+The editor is built around three main components:
+
+- `content` – the active line currently being edited
+- `lines` – a list storing all lines in the editor
+- `cursor_pos` – the current cursor position within the active line
+
+### Execution Flow
+
+1. Read a command from the user
+2. Parse the command into an action and optional argument
+3. Update the editor state (text, cursor position, or lines)
+4. Re-render the editor content in the console
+
+This design simulates how a text editor manages its internal state while remaining entirely terminal-based.
+
+---
+
+## ⚠️ Limitations
+
+The current version of the editor has the following limitations:
+
+- Command-based input only (no real-time keypress handling)
+- No undo/redo functionality
+- No file saving or loading support
+- No clipboard or copy/paste system
+- No syntax highlighting
+
+---
+
+## 🔮 Future Improvements
+
+Potential enhancements for future versions include:
+
+- Add file I/O support for opening and saving text files
+- Implement an undo/redo stack
+- Improve word boundary detection using regular expressions
+- Add search functionality
+- Support real-time key input through libraries such as `curses`
+- Introduce editing modes similar to Vim (Normal Mode, Insert Mode, etc.)
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome. Feel free to:
+
+- Fork the repository
+- Experiment with new features
+- Improve existing functionality
+- Submit pull requests
+- Report bugs or suggest enhancements through GitHub Issues
+
+---
+
+## 📄 License
+
+This project was developed as part of the **CSC1002 – Computational Laboratory** course and is intended for educational and learning purposes.
