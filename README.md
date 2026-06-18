@@ -1,4 +1,4 @@
-# Console-Based Text Editor (Multi-Line)
+# ⌨️ Console-Based Text Editor (Multi-Line)
 
 A simple console-based text editor written in Python that simulates basic Vim-style editing through command-based input.  
 This project demonstrates core concepts in data structures, string manipulation, and command parsing by building a lightweight text editor from scratch.
